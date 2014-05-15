@@ -7,14 +7,14 @@ Ball::Ball()
     xPos = SCREEN_WIDTH/2;
     yPos = SCREEN_HEIGHT/2;
 
-    xVel = BALL_VEL;
+    xVel = -BALL_VEL;
     yVel = 0;
 
     collider.w = BALL_WIDTH;
     collider.h = BALL_HEIGHT;
 }
 
-void Ball::makeMove(bool collision, float timeStep)
+void Ball::makeMove(bool collision)
 {
     if (xPos<0)
     {
@@ -22,6 +22,7 @@ void Ball::makeMove(bool collision, float timeStep)
         xPos = SCREEN_WIDTH/2;
         collider.x = xPos;
         xVel = -BALL_VEL;
+        yVel = 0;
     }
     if (xPos+BALL_WIDTH>SCREEN_WIDTH)
     {
@@ -29,6 +30,7 @@ void Ball::makeMove(bool collision, float timeStep)
         xPos = SCREEN_WIDTH/2;
         collider.x = xPos;
         xVel = BALL_VEL;
+        yVel = 0;
     }
     if(collision == true && xPos>=SCREEN_WIDTH/2)
     {
@@ -51,9 +53,9 @@ void Ball::makeMove(bool collision, float timeStep)
         yVel -= BALL_VEL;
     }
 
-    yPos += yVel * timeStep;
+    yPos += yVel;
     collider.y = yPos;
-    xPos += xVel * timeStep;
+    xPos += xVel;
     collider.x = xPos;
 }
 

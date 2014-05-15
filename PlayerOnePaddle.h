@@ -10,7 +10,7 @@ const int SCREEN_WIDTH = 1700;
 class PlayerOnePaddle
 {
 public:
-    static const int PADDLE_HEIGHT = 100;
+    static const int PADDLE_HEIGHT = 200;
     static const int PADDLE_WIDTH = 10;
 
     static const int PADDLE_VEL = 3;

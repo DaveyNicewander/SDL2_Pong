@@ -10,7 +10,7 @@ public:
     static const int BALL_HEIGHT = 10;
     static const int BALL_WIDTH = 10;
 
-    static const int BALL_VEL = 11;
+    static const int BALL_VEL = 1;
 
     SDL_Renderer* ballRenderer;
 
@@ -18,7 +18,7 @@ public:
 
     Ball();
 
-    void makeMove(bool collision, float timeStep);
+    void makeMove(bool collision);
 
     void render(SDL_Renderer* ballRenderer);
 

@@ -25,10 +25,10 @@ void PlayerOnePaddle::handleEvent(SDL_Event &event)
     {
         switch(event.key.keysym.sym)
         {
-            case SDLK_UP        :yVel -= PADDLE_VEL;
+            case SDLK_w        :yVel -= PADDLE_VEL;
                                  break;
 
-            case SDLK_DOWN      :yVel += PADDLE_VEL;
+            case SDLK_s        :yVel += PADDLE_VEL;
                                  break;
         }
     }
@@ -36,10 +36,10 @@ void PlayerOnePaddle::handleEvent(SDL_Event &event)
     {
         switch(event.key.keysym.sym)
         {
-            case SDLK_UP        :yVel += PADDLE_VEL;
+            case SDLK_w        :yVel += PADDLE_VEL;
                                  break;
 
-            case SDLK_DOWN      :yVel -= PADDLE_VEL;
+            case SDLK_s        :yVel -= PADDLE_VEL;
                                  break;
         }
     }

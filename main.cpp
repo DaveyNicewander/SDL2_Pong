@@ -16,7 +16,6 @@ Last Stop Time:
 
 bool initSDL(); //Initializes SDL and creates window
 void closeSDL(); //Shuts down SDL
-bool loadMedia(); //Loads media used for program
 bool checkCollision(Ball ball,SDL_Rect a,SDL_Rect b,SDL_Rect c); //checks for collision between two objects
 
 
@@ -46,7 +45,7 @@ int main(int argc, char* args[])
     }
     else
     {
-        renderer = SDL_CreateRenderer(mainWindow,-1,SDL_RENDERER_ACCELERATED );
+        renderer = SDL_CreateRenderer(mainWindow,-1,SDL_RENDERER_ACCELERATED);
         while (!quit)
         {
             while(SDL_PollEvent(&gameEvent) != 0)
@@ -65,7 +64,7 @@ int main(int argc, char* args[])
             p2.makeMove();
             bool collision = false;
             collision = checkCollision(gameBall,gameBall.collider,p1.collider,p2.collider);
-            gameBall.makeMove(collision,.1);
+            gameBall.makeMove(collision);
 
             SDL_SetRenderDrawColor(renderer,0x00,0x00,0x00,0xFF);
             SDL_RenderClear(renderer);
@@ -139,20 +138,6 @@ void closeSDL()
     return;
 }
 
-
-bool loadMedia()
-{
-	bool success = true;
-
-	image = SDL_LoadBMP("hello_world.bmp");
-	if(image == NULL)
-	{
-		printf("Failed to load image!\n", SDL_GetError());
-		success = false;
-	}
-
-	return success;
-}
 
 bool checkCollision(Ball ball,SDL_Rect a,SDL_Rect b,SDL_Rect c)
 {
